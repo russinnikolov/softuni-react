@@ -24,3 +24,7 @@ client/yarn-error.log*
 
 client/.idea
 .idea
+
+server/database.json
+server/node_modules
+server/services/db.js
