@@ -36,7 +36,7 @@ exports.up = function(db, callback) {
 			length: 256
 		},
 		createdOn: {
-			type: 'datetime',
+			type: 'timestamp',
 			notNull: true,
 			defaultValue: new String('CURRENT_TIMESTAMP')
 		}

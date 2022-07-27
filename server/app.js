@@ -5,9 +5,9 @@ const AppError = require("./utils/appError");
 const errorHandler = require("./utils/errorHandler");
 
 const app = express();
-const PORT = 3030;
+const PORT = 3031;
 
-app.use(cors(), router);
+app.use(express.json(), router);
 
 app.all("*", (req, res, next) => {
 	next(new AppError(`The URL ${req.originalUrl} does not exists`, 404));
