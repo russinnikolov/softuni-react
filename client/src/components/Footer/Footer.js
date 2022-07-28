@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 const Footer = () => {
@@ -18,33 +19,33 @@ const Footer = () => {
 					<div className="row">
 						<div className="col-xl-3 col-lg-4 col-md-6">
 							<div className="ud-widget">
-								<a href="index.html" className="ud-footer-logo">
+								<Link to="/home" className="ud-footer-logo">
 									<img src="assets/images/logo/logo.svg" alt="logo"/>
-								</a>
+								</Link>
 								<p className="ud-widget-desc">
 									We create digital experiences for brands and companies by
 									using technology.
 								</p>
 								<ul className="ud-widget-socials">
 									<li>
-										<a href="https://twitter.com/MusharofChy">
+										<Link to="https://twitter.com/MusharofChy">
 											<i className="lni lni-facebook-filled"></i>
-										</a>
+										</Link>
 									</li>
 									<li>
-										<a href="https://twitter.com/MusharofChy">
+										<Link to="https://twitter.com/MusharofChy">
 											<i className="lni lni-twitter-filled"></i>
-										</a>
+										</Link>
 									</li>
 									<li>
-										<a href="https://twitter.com/MusharofChy">
+										<Link to="https://twitter.com/MusharofChy">
 											<i className="lni lni-instagram-filled"></i>
-										</a>
+										</Link>
 									</li>
 									<li>
-										<a href="https://twitter.com/MusharofChy">
+										<Link to="https://twitter.com/MusharofChy">
 											<i className="lni lni-linkedin-original"></i>
-										</a>
+										</Link>
 									</li>
 								</ul>
 							</div>
@@ -55,35 +56,10 @@ const Footer = () => {
 								<h5 className="ud-widget-title">About Us</h5>
 								<ul className="ud-widget-links">
 									<li>
-										<a href="javascript:void(0)">Home</a>
+										<Link to="/">Home</Link>
 									</li>
 									<li>
-										<a href="javascript:void(0)">Features</a>
-									</li>
-									<li>
-										<a href="javascript:void(0)">About</a>
-									</li>
-									<li>
-										<a href="javascript:void(0)">Testimonial</a>
-									</li>
-								</ul>
-							</div>
-						</div>
-						<div className="col-xl-2 col-lg-3 col-md-6 col-sm-6">
-							<div className="ud-widget">
-								<h5 className="ud-widget-title">Features</h5>
-								<ul className="ud-widget-links">
-									<li>
-										<a href="javascript:void(0)">How it works</a>
-									</li>
-									<li>
-										<a href="javascript:void(0)">Privacy policy</a>
-									</li>
-									<li>
-										<a href="javascript:void(0)">Terms of service</a>
-									</li>
-									<li>
-										<a href="javascript:void(0)">Refund policy</a>
+										<Link to="/about">About</Link>
 									</li>
 								</ul>
 							</div>
@@ -93,115 +69,36 @@ const Footer = () => {
 								<h5 className="ud-widget-title">Our Products</h5>
 								<ul className="ud-widget-links">
 									<li>
-										<a
-											href="https://lineicons.com/"
+										<Link
+											to="https://lineicons.com/"
 											rel="nofollow noopner"
 											target="_blank"
 										>Lineicons
-										</a>
+										</Link>
 									</li>
 									<li>
-										<a
-											href="https://ecommercehtml.com/"
+										<Link
+											to="https://ecommercehtml.com/"
 											rel="nofollow noopner"
 											target="_blank"
-										>Ecommerce HTML</a
+										>Ecommerce HTML</Link
 										>
 									</li>
 									<li>
-										<a
-											href="https://ayroui.com/"
+										<Link
+											to="https://ayroui.com/"
 											rel="nofollow noopner"
 											target="_blank"
-										>Ayro UI</a
-										>
+										>Ayro UI
+										</Link>
 									</li>
 									<li>
-										<a
-											href="https://graygrids.com/"
+										<Link
+											to="https://graygrids.com/"
 											rel="nofollow noopner"
 											target="_blank"
-										>Plain Admin</a
-										>
-									</li>
-								</ul>
-							</div>
-						</div>
-						<div className="col-xl-3 col-lg-6 col-md-8 col-sm-10">
-							<div className="ud-widget">
-								<h5 className="ud-widget-title">Partners</h5>
-								<ul className="ud-widget-brands">
-									<li>
-										<a
-											href="https://ayroui.com/"
-											rel="nofollow noopner"
-											target="_blank"
-										>
-											<img
-												src="assets/images/footer/brands/ayroui.svg"
-												alt="ayroui"
-											/>
-										</a>
-									</li>
-									<li>
-										<a
-											href="https://ecommercehtml.com/"
-											rel="nofollow noopner"
-											target="_blank"
-										>
-											<img
-												src="assets/images/footer/brands/ecommerce-html.svg"
-												alt="ecommerce-html"
-											/>
-										</a>
-									</li>
-									<li>
-										<a
-											href="https://graygrids.com/"
-											rel="nofollow noopner"
-											target="_blank"
-										>
-											<img
-												src="assets/images/footer/brands/graygrids.svg"
-												alt="graygrids"
-											/>
-										</a>
-									</li>
-									<li>
-										<a
-											href="https://lineicons.com/"
-											rel="nofollow noopner"
-											target="_blank"
-										>
-											<img
-												src="assets/images/footer/brands/lineicons.svg"
-												alt="lineicons"
-											/>
-										</a>
-									</li>
-									<li>
-										<a
-											href="https://uideck.com/"
-											rel="nofollow noopner"
-											target="_blank"
-										>
-											<img
-												src="assets/images/footer/brands/uideck.svg"
-												alt="uideck"
-											/>
-										</a>
-									</li>
-									<li>
-										<a
-											href="https://tailwindtemplates.co/"
-											rel="nofollow noopner"
-											target="_blank"
-										>
-											<img
-												src="assets/images/footer/brands/tailwindtemplates.svg"
-												alt="tailwindtemplates"
-											/>
-										</a>
+										>Plain Admin
+										</Link>
 									</li>
 								</ul>
 							</div>
@@ -215,20 +112,19 @@ const Footer = () => {
 						<div className="col-md-8">
 							<ul className="ud-footer-bottom-left">
 								<li>
-									<a href="javascript:void(0)">Privacy policy</a>
+									<Link to="/">Privacy policy</Link>
 								</li>
 								<li>
-									<a href="javascript:void(0)">Support policy</a>
+									<Link to="/policy">Support policy</Link>
 								</li>
 								<li>
-									<a href="javascript:void(0)">Terms of service</a>
+									<Link to="/terms">Terms of service</Link>
 								</li>
 							</ul>
 						</div>
 						<div className="col-md-4">
 							<p className="ud-footer-bottom-right">
-								Designed and Developed by
-								<a href="https://uideck.com" rel="nofollow">UIdeck</a>
+								Designed and Developed by <a href="https://github.com/russinnikolov" target="_blank" rel="nofollow"> Rusin Nikolov</a>
 							</p>
 						</div>
 					</div>
