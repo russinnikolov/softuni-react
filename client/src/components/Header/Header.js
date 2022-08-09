@@ -5,7 +5,7 @@ import { AuthContext } from "../../contexts/AuthContext";
 
 const Header = () => {
 
-	const { user } = useContext(AuthContext);
+	const { user, logoutHandler } = useContext(AuthContext);
 
 	return (
 		<header className="ud-header">
@@ -27,7 +27,6 @@ const Header = () => {
 									<li className="nav-item">
 										<Link className="ud-menu-scroll" to="/">Home</Link>
 									</li>
-
 									<li className="nav-item">
 										<Link className="ud-menu-scroll" to="/about">About</Link>
 									</li>
@@ -37,14 +36,21 @@ const Header = () => {
 								</ul>
 							</div>
 
-							<div className="navbar-btn d-none d-sm-inline-block">
-								<Link to="/login" className="ud-main-btn ud-login-btn">
-									Sign In
-								</Link>
-								<Link className="ud-main-btn ud-white-btn" to="/register">
-									Sign Up
-								</Link>
-							</div>
+
+							{user.accessToken ?
+								<div className="navbar-btn d-none d-sm-inline-block">
+									<div onClick={logoutHandler} className="ud-main-btn ud-login-btn">
+										Logout
+									</div>
+								</div> :
+								<div className="navbar-btn d-none d-sm-inline-block">
+									<Link to="/login" className="ud-main-btn ud-login-btn">
+										Sign In
+									</Link>
+									<Link className="ud-main-btn ud-white-btn" to="/register">
+										Sign Up
+									</Link>
+								</div>}
 						</nav>
 					</div>
 				</div>

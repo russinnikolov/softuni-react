@@ -10,7 +10,7 @@ const Home = () => {
 					<div className="col-lg-12">
 						<div className="ud-hero-content wow fadeInUp" data-wow-delay=".2s">
 							<h1 className="ud-hero-title">
-								Open-Source Web Template for SaaS, Startup, Apps, and More
+								All your expenses summed up in one place
 							</h1>
 							<p className="ud-hero-desc">
 								Multidisciplinary Web Template Built with Your Favourite

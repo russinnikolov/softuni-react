@@ -14,26 +14,10 @@ exports.getAllUsers = (req, res, next) => {
 	});
 };
 
-exports.createUser = (req, res, next) => {
-	if (!req.body) return next(new AppError("No user data found", 404));
-	req.body.password = md5(req.body.password);
-	conn.query(
-		"INSERT INTO user (name, email, password) VALUES(?, ?, ?)",
-		[req.body.name, req.body.email, req.body.password],
-		function (err, data, fields) {
-			if (err) return next(new AppError(err, 500));
-			res.status(200).json({
-				status: "success",
-				message: "User created!",
-			});
-		}
-	);
-};
-
 exports.getUser = (req, res, next) => {
-	if (!req.params.id) {
+	if (!req.params.id)
 		return next(new AppError("Requested User could not be found", 404));
-	}
+
 	conn.query(
 		"SELECT * FROM user WHERE id = ?",
 		req.params.id,
@@ -49,9 +33,9 @@ exports.getUser = (req, res, next) => {
 };
 
 exports.updateUser = (req, res, next) => {
-	if (!req.params.id) {
+	if (!req.params.id)
 		return next(new AppError("Requested User could not be found", 404));
-	}
+
 	conn.query(
 		"UPDATE user SET ? WHERE id=?",
 		[req.body, req.params.id],
@@ -80,28 +64,4 @@ exports.deleteUser = (req, res, next) => {
 			});
 		}
 	);
-}
-
-exports.login = (req, res, next) => {
-	if(!req.params)
-		return next(new AppError("No data provided", 404));
-
-	conn.query(
-		"SELECT * FROM user WHERE email=?",
-		req.body.email,
-		function (err, fields) {
-			if (err) return next(new AppError(err, 500));
-			if(fields[0].password === md5(req.body.password)) {
-				const token = jwt.sign(
-					{ userId: fields[0].id },
-					'RANDOM_TOKEN_SECRET',
-					{ expiresIn: '24h' });
-				res.status(200).json({
-					userId: fields[0].id,
-					accessToken: token
-				});
-			}
-		}
-	)
-
 }

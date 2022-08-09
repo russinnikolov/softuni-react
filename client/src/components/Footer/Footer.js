@@ -26,28 +26,6 @@ const Footer = () => {
 									We create digital experiences for brands and companies by
 									using technology.
 								</p>
-								<ul className="ud-widget-socials">
-									<li>
-										<Link to="https://twitter.com/MusharofChy">
-											<i className="lni lni-facebook-filled"></i>
-										</Link>
-									</li>
-									<li>
-										<Link to="https://twitter.com/MusharofChy">
-											<i className="lni lni-twitter-filled"></i>
-										</Link>
-									</li>
-									<li>
-										<Link to="https://twitter.com/MusharofChy">
-											<i className="lni lni-instagram-filled"></i>
-										</Link>
-									</li>
-									<li>
-										<Link to="https://twitter.com/MusharofChy">
-											<i className="lni lni-linkedin-original"></i>
-										</Link>
-									</li>
-								</ul>
 							</div>
 						</div>
 
@@ -123,8 +101,8 @@ const Footer = () => {
 							</ul>
 						</div>
 						<div className="col-md-4">
-							<p className="ud-footer-bottom-right">
-								Designed and Developed by <a href="https://github.com/russinnikolov" target="_blank" rel="nofollow"> Rusin Nikolov</a>
+							<p className="ud-footer-bottom-right" id="credits">
+								Designed and Developed by <a href="https://github.com/russinnikolov" target="_blank" rel="nofollow">Rusin Nikolov</a>
 							</p>
 						</div>
 					</div>

@@ -4,7 +4,6 @@ import { useContext } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
 import * as authService from "../../services/authService";
 
-
 const Register = () => {
 	const { loginHandler } = useContext(AuthContext);
 	const navigate = useNavigate();
@@ -13,17 +12,19 @@ const Register = () => {
 		e.preventDefault();
 		const formData = new FormData(e.target);
 
+		const userName = formData.get('user-name');
 		const email = formData.get('email');
 		const password = formData.get('password');
 		const confirmPassword = formData.get('confirm-password');
+		const type = 'Admin';
 
 		if(password !== confirmPassword)
 			return;
 
-		authService.register(email, password)
+		authService.register(userName, email, password, type)
 			.then(authData => {
 				loginHandler(authData);
-				navigate('/');
+				navigate('/')
 			})
 			.catch(() => {
 				navigate('/404');
@@ -55,8 +56,14 @@ const Register = () => {
 								<form className="ud-login-form" onSubmit={onSubmit}>
 									<div className="ud-form-group">
 										<input
+											type="text"
+											name="user-name"
+											placeholder="Username"
+										/>
+									</div>
+									<div className="ud-form-group">
+										<input
 											type="email"
-											id="email"
 											name="email"
 											placeholder="Email"
 										/>
@@ -64,7 +71,6 @@ const Register = () => {
 									<div className="ud-form-group">
 										<input
 											type="password"
-											id="password"
 											name="password"
 											placeholder="*********"
 										/>
@@ -73,7 +79,6 @@ const Register = () => {
 										<input
 											type="password"
 											name="confirm-password"
-											id="confirm-password"
 											placeholder="*********"
 										/>
 									</div>

@@ -10,23 +10,23 @@ import Register from "./components/Register/Register";
 
 function App() {
 
-	const [user, setUser] = useState({});
+	const [user, setUser] = useState(localStorage.auth || {});
 
 	const loginHandler = (userData) => {
 		setUser(userData);
-		localStorage.setItem(userData.accessToken)
+		localStorage.setItem('auth', JSON.stringify({"userName": userData.userName, "accessToken": userData.accessToken}));
 	};
 
 	const logoutHandler = () => {
 		setUser({});
+		localStorage.clear();
 	};
 
 	return (
 		<BrowserRouter>
 			<AuthContext.Provider value={{user, loginHandler, logoutHandler}}>
 				<div className="App">
-					<Header/>
-
+					<Header />
 					<div>
 						<Routes>
 							<Route path="/" element={<Home />}/>
@@ -35,7 +35,7 @@ function App() {
 						</Routes>
 					</div>
 
-					<Footer/>
+					<Footer />
 				</div>
 			</AuthContext.Provider>
 		</BrowserRouter>

@@ -1,9 +1,20 @@
 import {req} from "../utils/requester";
+import {error} from "../utils/error";
 
 const baseUrl = 'http://localhost:3030/user';
 
-export const login = (email, password) =>
-	req(`${baseUrl}/login`, { email, password }, 'POST');
+export const login = async (userName, password) => {
+	let response = '';
+	try {
+		response = await req(`${baseUrl}/login`, {userName, password}, 'POST');
+		console.log(response)
+	} catch (err) {
+		console.log(error);
+		error(err.message);
+		return;
+	}
+	return response;
+}
 
 
 export const logout = async (accessToken) => {
@@ -20,5 +31,10 @@ export const logout = async (accessToken) => {
 	}
 };
 
-export const register = (email, password) =>
-	req(`${baseUrl}`, {email, password}, 'POST');
+export const register = (userName, email, password, type) => {
+	try {
+		return req(`${baseUrl}/register`, {userName, email, password, type}, 'POST');
+	} catch (error) {
+		console.log(error);
+	}
+}

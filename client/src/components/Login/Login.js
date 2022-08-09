@@ -13,17 +13,14 @@ const Login = () => {
 		e.preventDefault();
 
 		const {
-			email,
+			userName,
 			password,
 		} = Object.fromEntries(new FormData(e.target));
 
-		authService.login(email, password)
+		authService.login(userName, password)
 			.then(authData => {
 				loginHandler(authData);
 				navigate('/');
-			})
-			.catch(() => {
-				navigate('/404');
 			});
 	};
 
@@ -42,8 +39,8 @@ const Login = () => {
 								<form className="ud-login-form" onSubmit={onSubmit}>
 									<div className="ud-form-group">
 										<input
-											type="email"
-											name="email"
+											type="text"
+											name="userName"
 											placeholder="Email/username"
 										/>
 									</div>
