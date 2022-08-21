@@ -7,9 +7,7 @@ export const login = async (userName, password) => {
 	let response = '';
 	try {
 		response = await req(`${baseUrl}/login`, {userName, password}, 'POST');
-		console.log(response)
 	} catch (err) {
-		console.log(error);
 		error(err.message);
 		return;
 	}

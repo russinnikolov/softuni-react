@@ -8,19 +8,9 @@ import Login from "./components/Login/Login";
 import Home from "./components/Home/Home";
 import Register from "./components/Register/Register";
 
+use {useLocalStorage} from "./hooks/useLocalStorage";
+
 function App() {
-
-	const [user, setUser] = useState(localStorage.auth || {});
-
-	const loginHandler = (userData) => {
-		setUser(userData);
-		localStorage.setItem('auth', JSON.stringify({"userName": userData.userName, "accessToken": userData.accessToken}));
-	};
-
-	const logoutHandler = () => {
-		setUser({});
-		localStorage.clear();
-	};
 
 	return (
 		<BrowserRouter>

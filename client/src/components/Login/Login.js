@@ -9,6 +9,19 @@ const Login = () => {
 
 	const navigate = useNavigate();
 
+	const [user, setUser] = useState(localStorage.auth || {});
+	const [store, setStore] = useLocalStorage()
+
+	const loginHandler = (userData) => {
+		setUser(userData);
+		localStorage.setItem('auth', JSON.stringify({"userName": userData.userName, "accessToken": userData.accessToken}));
+	};
+
+	const logoutHandler = () => {
+		setUser({});
+		localStorage.clear();
+	};
+
 	const onSubmit = (e) => {
 		e.preventDefault();
 
