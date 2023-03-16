@@ -1,7 +1,4 @@
 const AppError = require("../utils/appError");
-const conn = require("../services/db");
-const md5 = require("blueimp-md5");
-const jwt = require("jsonwebtoken");
 
 const User = require("../models/auth.model");
 

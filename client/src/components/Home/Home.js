@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 
 
 const Home = () => {
-
 	return (
 		<section className="ud-hero" id="home">
 			<div className="container">

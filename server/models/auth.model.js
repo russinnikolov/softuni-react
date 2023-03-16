@@ -1,7 +1,7 @@
-const AppError = require("../utils/appError");
-const conn = require("../services/db");
 const md5 = require("blueimp-md5");
 const jwt = require("jsonwebtoken");
+const conn = require('../services/db');
+
 
 const User = function(userData) {
 	this.userName = userData.userName;
@@ -17,37 +17,37 @@ const User = function(userData) {
 
 User.register = (newUser, result) => {
 	newUser.password = md5(newUser.password);
-	conn.query(
+	conn.quary(
 		"INSERT INTO user SET ?", newUser,
-		(err, res)  => {
+		(err, res) => {
 			if(err) {
 				result(err, null);
 				return;
 			}
 
-			const token = jwt.sign({ userId: res.insertId },
-				'RANDOM_TOKEN_SECRET', { expiresIn: '24h' });
+			const token = jwt.sign({userId: res.insertId},
+				'RANDOM_TOKEN_SECRET', {expiresIn: '24h'});
 
-			result(null, { id: res.insertId, username: newUser.userName, email: newUser.email, accessToken: token});
+			result(null, {id: res.insertId, username: newUser.userName, email: newUser.email, accessToken: token});
 		}
 	);
 }
 
 User.findByUserName = (userName, result) => {
 	conn.query(
-		"SELECT * FROM user WHERE userName = ?", userName,(err, res) => {
-		if (err) {
-			console.log("error: ", err);
-			result(err, null);
-			return;
-		}
-		if (res.length) {
-			result(null, res[0]);
-			return;
-		}
+		"SELECT * FROM user WHERE userName = ?", userName, (err, res) => {
+			if(err) {
+				console.log("error: ", err);
+				result(err, null);
+				return;
+			}
+			if(res.length) {
+				result(null, res[0]);
+				return;
+			}
 
-		result({ kind: "not_found" }, null);
-	});
+			result({kind: "not_found"}, null);
+		});
 };
 
 

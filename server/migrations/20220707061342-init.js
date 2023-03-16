@@ -106,9 +106,9 @@ exports.up = function(db, callback) {
 			notNull: true,
 			defaultValue: new String('CURRENT_TIMESTAMP')
 		}
-	}, createForeignKeys);
+	}, createFamilyForeignKeys);
 
-	function createForeignKeys(err) {
+	function createFamilyForeignKeys(err) {
 		if(err) { callback(err); return;}
 		db.addForeignKey('user', 'family', 'fk_user_family', {
 				'family_id': 'id'

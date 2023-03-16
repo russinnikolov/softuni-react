@@ -1,6 +1,5 @@
-import { useState } from 'react';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
-import { AuthContext } from './contexts/AuthContext';
+import { AuthProvider } from './contexts/AuthContext';
 
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
@@ -8,13 +7,11 @@ import Login from "./components/Login/Login";
 import Home from "./components/Home/Home";
 import Register from "./components/Register/Register";
 
-use {useLocalStorage} from "./hooks/useLocalStorage";
 
 function App() {
-
 	return (
 		<BrowserRouter>
-			<AuthContext.Provider value={{user, loginHandler, logoutHandler}}>
+			<AuthProvider>
 				<div className="App">
 					<Header />
 					<div>
@@ -27,7 +24,7 @@ function App() {
 
 					<Footer />
 				</div>
-			</AuthContext.Provider>
+			</AuthProvider>
 		</BrowserRouter>
 	);
 }

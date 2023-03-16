@@ -1,5 +1,7 @@
+import {useContext, useState} from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useContext } from "react";
+
+import {useLocalStorage} from "../../hooks/useLocalStorage";
 
 import { AuthContext} from "../../contexts/AuthContext";
 import * as authService from "../../services/authService";
@@ -11,11 +13,11 @@ const Login = () => {
 
 	const [user, setUser] = useState(localStorage.auth || {});
 	const [store, setStore] = useLocalStorage()
-
-	const loginHandler = (userData) => {
-		setUser(userData);
-		localStorage.setItem('auth', JSON.stringify({"userName": userData.userName, "accessToken": userData.accessToken}));
-	};
+	//
+	// const loginHandler = (userData) => {
+	// 	setUser(userData);
+	// 	localStorage.setItem('auth', JSON.stringify({"userName": userData.userName, "accessToken": userData.accessToken}));
+	// };
 
 	const logoutHandler = () => {
 		setUser({});
