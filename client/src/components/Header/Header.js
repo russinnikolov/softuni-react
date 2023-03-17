@@ -1,61 +1,54 @@
-import { Link } from "react-router-dom";
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 
 import { AuthContext } from "../../contexts/AuthContext";
 
-const Header = () => {
+import { Breadcrumb, Layout, Menu } from 'antd';
 
+const Header = () => {
 	const { user, logoutHandler } = useContext(AuthContext);
+	const menuItems = [
+		{
+			label: (
+				<Link to={'/'}>Home</Link>
+			),
+			key: '/',
+			type: 'both'
+		}, {
+			label: 'contact',
+			key: '/contact',
+			type: 'both'
+		}, {
+			label: (
+				<Link to={'/login'}>Login</Link>
+			),
+			key: '/login',
+			type: 'public'
+		}, {
+			label: 'Register',
+			key: '/register',
+			type: 'public'
+		}, {
+			label: 'Logout',
+			key: '/logout',
+			type: 'private'
+		}
+	];
+
+	console.log(user);
 
 	return (
-		<header className="ud-header">
-			<div className="container">
-				<div className="row">
-					<div className="col-lg-12">
-						<nav className="navbar navbar-expand-lg">
-							<Link className="navbar-brand" to="/">
-								<img src="assets/images/logo/logo.svg" alt="Logo" />
-							</Link>
-							<button className="navbar-toggler">
-								<span className="toggler-icon"> </span>
-								<span className="toggler-icon"> </span>
-								<span className="toggler-icon"> </span>
-							</button>
-
-							<div className="navbar-collapse">
-								<ul id="nav" className="navbar-nav mx-auto">
-									<li className="nav-item">
-										<Link className="ud-menu-scroll" to="/">Home</Link>
-									</li>
-									<li className="nav-item">
-										<Link className="ud-menu-scroll" to="/about">About</Link>
-									</li>
-									<li className="nav-item">
-										<Link className="ud-menu-scroll" to="/contact">Contact</Link>
-									</li>
-								</ul>
-							</div>
-
-
-							{user.accessToken ?
-								<div className="navbar-btn d-none d-sm-inline-block">
-									<div onClick={logoutHandler} className="ud-main-btn ud-login-btn">
-										Logout
-									</div>
-								</div> :
-								<div className="navbar-btn d-none d-sm-inline-block">
-									<Link to="/login" className="ud-main-btn ud-login-btn">
-										Sign In
-									</Link>
-									<Link className="ud-main-btn ud-white-btn" to="/register">
-										Sign Up
-									</Link>
-								</div>}
-						</nav>
-					</div>
-				</div>
-			</div>
-		</header>
+		<>
+			<Menu
+				theme="dark"
+				mode="horizontal"
+				style={{height: '100px'}}
+				defaultSelectedKeys={[2]}
+				items={menuItems.filter(item =>  {
+					return user ? item.type !== "private" : item.type !== "public";
+				})}
+			/>
+		</>
 	);
 
 }

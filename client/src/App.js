@@ -21,7 +21,6 @@ function App() {
 							<Route path="/register" element={<Register />}/>
 						</Routes>
 					</div>
-
 					<Footer />
 				</div>
 			</AuthProvider>

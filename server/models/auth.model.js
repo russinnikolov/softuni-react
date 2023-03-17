@@ -17,7 +17,7 @@ const User = function(userData) {
 
 User.register = (newUser, result) => {
 	newUser.password = md5(newUser.password);
-	conn.quary(
+	conn.query(
 		"INSERT INTO user SET ?", newUser,
 		(err, res) => {
 			if(err) {
