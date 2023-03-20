@@ -1,14 +1,11 @@
-import { Link } from "react-router-dom";
-
-import { Col, Row } from 'antd';
+import PublicLayout from "../Layout/PublicLayout";
 
 const Home = () => {
 	return (
-		<>
-			<Row>
-				<Col span={4}><Link to={"/"} > Hey</Link></Col>
-			</Row>
-		</>
+		<PublicLayout>
+			<h1>Hey</h1>
+
+		</PublicLayout>
 	);
 
 }

@@ -5,6 +5,7 @@ import {useLocalStorage} from "../../hooks/useLocalStorage";
 
 import { AuthContext} from "../../contexts/AuthContext";
 import * as authService from "../../services/authService";
+import PublicLayout from "../Layout/PublicLayout";
 
 const Login = () => {
 	const { loginHandler } = useContext(AuthContext);
@@ -40,9 +41,7 @@ const Login = () => {
 	};
 
 	return(
-		<>
-			<section className="ud-page-banner">
-			</section>
+		<PublicLayout>
 			<section className="ud-login">
 				<div className="container">
 					<div className="row">
@@ -81,7 +80,7 @@ const Login = () => {
 					</div>
 				</div>
 			</section>
-		</>
+		</PublicLayout>
 	);
 }
 

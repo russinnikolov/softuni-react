@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 
 import { AuthContext } from "../../contexts/AuthContext";
 
-import { Breadcrumb, Layout, Menu } from 'antd';
+import { Menu } from 'antd';
 
 const Header = () => {
-	const { user, logoutHandler } = useContext(AuthContext);
+	const { user } = useContext(AuthContext);
 	const menuItems = [
 		{
 			label: (
@@ -15,27 +15,31 @@ const Header = () => {
 			key: '/',
 			type: 'both'
 		}, {
-			label: 'contact',
-			key: '/contact',
+			label: (
+				<Link to={'/contact'}>Contact</Link>
+			),
+			key: 'contact',
 			type: 'both'
 		}, {
 			label: (
 				<Link to={'/login'}>Login</Link>
 			),
-			key: '/login',
+			key: 'login',
 			type: 'public'
 		}, {
-			label: 'Register',
-			key: '/register',
+			label: (
+				<Link to={'/register'}>Register</Link>
+			),
+			key: 'register',
 			type: 'public'
 		}, {
-			label: 'Logout',
-			key: '/logout',
+			label: (
+				<Link to={'/logout'}>Logout</Link>
+			),
+			key: 'logout',
 			type: 'private'
 		}
 	];
-
-	console.log(user);
 
 	return (
 		<>
