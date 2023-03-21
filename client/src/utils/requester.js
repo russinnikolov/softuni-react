@@ -24,9 +24,7 @@ export const req = async (url, data, method = 'GET') => {
 			});
 		}
 		const response = await buildRequest;
-		const result = await response.json();
-
-		return result;
+		return await response.json();
 	} catch (error) {
 		console.log(error);
 	}

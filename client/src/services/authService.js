@@ -17,21 +17,19 @@ export const login = async (userName, password) => {
 
 export const logout = async (accessToken) => {
 	try {
-		const response = await fetch(`${baseUrl}/logout`, {
+		return await fetch(`${baseUrl}/logout`, {
 			headers: {
 				'X-Authorization': accessToken
 			}
 		});
-
-		return response;
 	} catch (error) {
 		console.log(error);
 	}
 };
 
-export const register = (userName, email, password, type) => {
+export const register = (data) => {
 	try {
-		return req(`${baseUrl}/register`, {userName, email, password, type}, 'POST');
+		return req(`${baseUrl}/register`, data, 'POST');
 	} catch (error) {
 		console.log(error);
 	}
