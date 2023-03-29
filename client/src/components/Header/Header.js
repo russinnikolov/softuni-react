@@ -46,7 +46,6 @@ const Header = () => {
 			<Menu
 				theme="dark"
 				mode="horizontal"
-				style={{height: '100px'}}
 				defaultSelectedKeys={[2]}
 				items={menuItems.filter(item =>  {
 					return user ? item.type !== "private" : item.type !== "public";
