@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 
 
 const Footer = () => {
-
 	return (
 		<footer className="ud-footer wow fadeInUp" data-wow-delay=".15s">
 			<div className="shape shape-1">
@@ -19,16 +18,11 @@ const Footer = () => {
 					<div className="row">
 						<div className="col-xl-3 col-lg-4 col-md-6">
 							<div className="ud-widget">
-								<Link to="/home" className="ud-footer-logo">
+								<Link to="/" className="ud-footer-logo">
 									<img src="assets/images/logo/logo.svg" alt="logo"/>
 								</Link>
-								<p className="ud-widget-desc">
-									We create digital experiences for brands and companies by
-									using technology.
-								</p>
 							</div>
 						</div>
-
 						<div className="col-xl-2 col-lg-2 col-md-6 col-sm-6">
 							<div className="ud-widget">
 								<h5 className="ud-widget-title">About Us</h5>
@@ -42,45 +36,6 @@ const Footer = () => {
 								</ul>
 							</div>
 						</div>
-						<div className="col-xl-2 col-lg-3 col-md-6 col-sm-6">
-							<div className="ud-widget">
-								<h5 className="ud-widget-title">Our Products</h5>
-								<ul className="ud-widget-links">
-									<li>
-										<Link
-											to="https://lineicons.com/"
-											rel="nofollow noopner"
-											target="_blank"
-										>Lineicons
-										</Link>
-									</li>
-									<li>
-										<Link
-											to="https://ecommercehtml.com/"
-											rel="nofollow noopner"
-											target="_blank"
-										>Ecommerce HTML</Link
-										>
-									</li>
-									<li>
-										<Link
-											to="https://ayroui.com/"
-											rel="nofollow noopner"
-											target="_blank"
-										>Ayro UI
-										</Link>
-									</li>
-									<li>
-										<Link
-											to="https://graygrids.com/"
-											rel="nofollow noopner"
-											target="_blank"
-										>Plain Admin
-										</Link>
-									</li>
-								</ul>
-							</div>
-						</div>
 					</div>
 				</div>
 			</div>
@@ -90,10 +45,7 @@ const Footer = () => {
 						<div className="col-md-8">
 							<ul className="ud-footer-bottom-left">
 								<li>
-									<Link to="/">Privacy policy</Link>
-								</li>
-								<li>
-									<Link to="/policy">Support policy</Link>
+									<Link to="/policy">Privacy policy</Link>
 								</li>
 								<li>
 									<Link to="/terms">Terms of service</Link>
